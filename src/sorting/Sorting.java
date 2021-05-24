@@ -3,7 +3,7 @@ package sorting;
 
 import java.util.Scanner;
 
-public class Sorting 
+public class HeapSort 
     
     {
 
