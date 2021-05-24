@@ -1,7 +1,4 @@
 
-
-package quicksort;
-
 import java.util.Scanner;
 
 public class QuickSort 
