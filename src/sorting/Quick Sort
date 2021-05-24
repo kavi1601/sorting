@@ -1,1 +1,68 @@
 
+
+package quicksort;
+
+import java.util.Scanner;
+
+public class QuickSort 
+{
+    static int partition(int[] arr, int begin, int end)
+    {
+        int last = end;
+        int first = begin;
+        
+        for (int i = begin; i < end; i++) 
+        {
+            
+            if (arr[i] < arr[last]) 
+            {
+                int temp = arr[first];
+                arr[first] = arr[i];
+                arr[i] = temp;
+                first++;
+            }
+        }
+        
+        int temp = arr[last];
+        arr[last] = arr[first];
+        arr[first] = temp;
+
+        return first;
+    }
+
+    public static void quickSort(int[] array, int begin, int end) 
+    {
+        if (end <= begin) 
+            return;
+        int last = partition(array, begin, end);
+        quickSort(array, begin, last-1);
+        quickSort(array, last+1, end);
+    }
+    
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        
+        //get the input array length from user
+        int len=sc.nextInt();
+        int arr[]=new int[len];
+        int i;
+        
+        //get the input for array elements
+        for(i=0;i<len;i++)
+            arr[i]=sc.nextInt();
+        
+        //print the array before sorting
+        System.out.println("Sorted Array Element Are : ");
+        for(i=0;i<len;i++)
+            System.out.printf("%d ",arr[i]);
+        
+        quickSort(arr,0,len-1);
+        
+        //print the array after sorting
+        System.out.println("Sorted Array Element Are : ");
+        for(i=0;i<len;i++)
+            System.out.printf("%d ",arr[i]);
+    }
+}
+
